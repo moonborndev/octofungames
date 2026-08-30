@@ -205,6 +205,22 @@ body {
 }
 .block a:hover, .block a:focus-visible { border-bottom-color: currentColor; }
 
+.foot-nav {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  margin: 0 0 12px;
+}
+.foot-nav a {
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1px;
+  transition: border-color 0.2s ease;
+}
+.foot-nav a:hover, .foot-nav a:focus-visible { border-bottom-color: currentColor; }
+
 .entity {
   margin: 0;
   font-style: normal;
@@ -444,13 +460,17 @@ body {
 
     <div class="block">
       <h2>Contact</h2>
-      <p><a href="mailto:erkmen@octofungames.com">erkmen@octofungames.com</a></p>
+      <p><a href="mailto:hello@octofungames.com">hello@octofungames.com</a></p>
     </div>
   </div>
 </section>
 
 <footer class="foot">
   <div class="foot-rule"></div>
+  <nav class="foot-nav">
+    <a href="/terms-of-service">Terms of Service</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+  </nav>
   <address class="entity">
     <strong>Octofun Games Yaz&#305;l&#305;m ve Bili&#351;im A.&#350;.</strong><br>
     &#304;&#231;erenk&#246;y Mah. Top&#231;u &#304;brahim Sk. Quick Tower Sitesi No: 8-10D, Ata&#351;ehir / &#304;stanbul, T&#252;rkiye
