@@ -160,6 +160,7 @@ bigo.sg, 8m4jk4b9d6, RESELLER
 bigo.sg, adidz3dyfp, RESELLER
 bigo.sg, g93ofwdl64, RESELLER
 bigo.sg, q9hk29ki8d, RESELLER
+bigo.sg, qyfoptvec9, RESELLER
 bildapp.net, 164391510, RESELLER
 blis.com, 33, RESELLER, 61453ae19a4b73f4
 blis.com, 74, RESELLER, 61453ae19a4b73f4
@@ -1052,6 +1053,7 @@ video.unrulymedia.com, 713332123, RESELLER, 98c21ef9a666c68b
 video.unrulymedia.com, 739131256, RESELLER, 98c21ef9a666c68b
 video.unrulymedia.com, 809865099, RESELLER, 98c21ef9a666c68b
 video.unrulymedia.com, 8167205979129043832, RESELLER, 98c21ef9a666c68b
+video.unrulymedia.com, 841707281, RESELLER, 98c21ef9a666c68b
 video.unrulymedia.com, 848837292, RESELLER, 98c21ef9a666c68b
 video.unrulymedia.com, 905340553, RESELLER
 video.unrulymedia.com, 906352066, RESELLER
