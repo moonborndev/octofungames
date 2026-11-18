@@ -106,3 +106,39 @@ the whole list each time; do not append.
 3. Update the summary table in the SDK doc `docs/HESAP-KURULUMU.md` ("app-ads.txt kaynaklari") together with
    this file.
 4. Run `report`, review the "To add" lines, then `apply --networks <key>` and commit the change on its own.
+
+## Mac side
+
+Files in `mac/`:
+
+- `run_panels.py` (stdlib, `/usr/bin/python3`): the weekly run and the Slack retry. Takes a lock, runs
+  `git pull --ff-only`, starts one Claude run (`claude -p --chrome`, Chrome tools only, prompt =
+  `PANEL_TASK.md` + date + networks) that prints each list between markers, writes `snapshots/<key>.txt`,
+  picks up the Liftoff download from `~/Downloads`, runs `watch.py report`, posts the summary to Slack and
+  saves `state.json`. Options: `--networks a,b`, `--thread-ts <ts>`, `--no-slack` (print instead of post),
+  `--skip-claude` (test: no pull, no Claude). It never commits or edits app-ads.txt.
+- `listener.py` (venv, `slack_sdk`): Socket Mode listener; answers only `app_mention` in #alert-logger.
+- `setup.sh`: creates `~/.config/app-ads-watch/venv` with the pinned `slack_sdk`.
+- `launchd/`: `com.octofun.app-ads-listener.plist` (always on) and `com.octofun.app-ads-weekly.plist`
+  (Monday 10:00 local time).
+- `install.sh` / `uninstall.sh`: copy and load / unload and remove the two jobs in `~/Library/LaunchAgents`.
+
+Install: `mac/setup.sh`, then `mac/install.sh`. Remove: `mac/uninstall.sh`.
+
+Secrets live only in `~/.config/app-ads-watch/slack.env` (chmod 600: `SLACK_BOT_TOKEN`, `SLACK_APP_TOKEN`,
+`SLACK_CHANNEL`). Logs: `~/.config/app-ads-watch/logs/` (`<date>-<time>.log` per run, `listener.log`,
+launchd stdout/stderr). State: `~/.config/app-ads-watch/state.json` (last post ts, lines to add,
+login-needed networks) and `last-report.md` / `last-report.json`. No token is ever logged. Claude runs on
+the Max subscription login; the jobs never set `ANTHROPIC_API_KEY` and the scripts remove it.
+
+Slack commands (mention the bot, any channel member may use them):
+
+- `@app-ads tekrar dene` (or `retry`): reads the login-needed networks again (all snapshot networks if
+  none) and replies in the thread. If a run is in progress the reply is "Zaten çalışıyor".
+- `@app-ads onayla` (or `approve`), optionally with networks (`onayla unity inmobi`): runs `apply` for the
+  networks that have lines to add, one commit per network, pushes, replies with the commit hashes and
+  later when the lines are live. It only adds lines; if the push fails the commits stay local.
+- Anything else gets a short help reply.
+
+Weekly time: edit `StartCalendarInterval` (Weekday 1 = Monday, Hour, Minute; local time) in
+`mac/launchd/com.octofun.app-ads-weekly.plist`, then run `mac/install.sh` again.
