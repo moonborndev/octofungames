@@ -25,6 +25,53 @@ jobs:
           python3 tools/app-ads-watch/watch.py report --out "out/$DAY.md" --json "out/$DAY.json"
           cat "out/$DAY.md" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Post summary to Slack
+        if: always()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL: C0BTXT7BDKQ
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          python3 - <<'EOF'
+          import glob, json, os, urllib.request
+          files = glob.glob("out/*.json")
+          lines = ["*app-ads.txt haftalık kontrol (GitHub Actions)*"]
+          if not files:
+              lines.append("Rapor üretilemedi.")
+          else:
+              d = json.load(open(files[0]))
+              public = {k: n for k, n in d["networks"].items() if n["type"] == "public"}
+              for k, n in public.items():
+                  if n["status"] != "ok":
+                      lines.append("• {}: liste okunamadı ({})".format(n["name"], n["status"]))
+                  elif n["to_add"]:
+                      lines.append("• {}: {} eksik satır".format(n["name"], len(n["to_add"])))
+                      lines.append("```" + "\n".join(n["to_add"][:20]) + "```")
+                  else:
+                      lines.append("• {}: eksik satır yok".format(n["name"]))
+              live = d.get("live") or {}
+              if live.get("error"):
+                  lines.append("• Canlı site okunamadı: {}".format(live["error"]))
+              elif live.get("identical") is False:
+                  lines.append("• Canlı site repodaki dosyadan farklı")
+              else:
+                  lines.append("• Canlı site repoyla aynı")
+              if d.get("format_errors") or d.get("order_errors"):
+                  lines.append("• Biçim veya sıra hatası var, rapora bakın")
+              for err in d.get("errors", [])[:5]:
+                  lines.append("• Hata: {}".format(err))
+          lines.append("Panel sonuçları Mac'ten ayrı mesajla gelir; gelmezse Mac bu hafta çalışmadı.")
+          lines.append("<{}|Raporun tamamı>".format(os.environ["RUN_URL"]))
+          body = json.dumps({"channel": os.environ["SLACK_CHANNEL"], "text": "\n".join(lines)}).encode()
+          req = urllib.request.Request("https://slack.com/api/chat.postMessage", data=body, headers={
+              "Content-Type": "application/json; charset=utf-8",
+              "Authorization": "Bearer " + os.environ["SLACK_BOT_TOKEN"]})
+          resp = json.load(urllib.request.urlopen(req, timeout=30))
+          print("slack ok" if resp.get("ok") else "slack error: {}".format(resp.get("error")))
+          if not resp.get("ok"):
+              raise SystemExit(1)
+          EOF
+
       - name: Keep report
         uses: actions/upload-artifact@v4
         with:
