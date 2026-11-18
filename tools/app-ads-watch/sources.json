@@ -1,0 +1,152 @@
+{
+  "app_ads_file": "../../app-ads.txt",
+  "live_url": "https://octofungames.com/app-ads.txt",
+  "snapshot_dir": "snapshots",
+  "snapshot_stale_days": 8,
+  "sdk_registry_mediation_map": {
+    "applovin": "applovin",
+    "admob-mediation": "admob",
+    "unityads-mediation": "unity",
+    "meta-mediation": "meta",
+    "dtexchange-mediation": "dtexchange",
+    "pangle-mediation": "pangle",
+    "inmobi-mediation": "inmobi",
+    "liftoff-mediation": "liftoff",
+    "mintegral-mediation": "mintegral",
+    "moloco-mediation": "moloco"
+  },
+  "networks": [
+    {
+      "key": "applovin",
+      "name": "AppLovin (MAX)",
+      "required": true,
+      "type": "snapshot",
+      "own_domains": ["applovin.com"],
+      "direct_lines": ["applovin.com, d271b21f2a529bd779ccbe24f64e4e1c, DIRECT"],
+      "dashboard_path": "Account > General > App-Ads.txt Info (lists only AppLovin's own lines, not the other MAX networks)",
+      "dashboard_url": "https://max.applovin.com/o/account?r=3#app_ads_txt",
+      "dashboard_url_verified": true,
+      "page_wait_seconds": 60,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "admob",
+      "name": "Google AdMob",
+      "required": true,
+      "type": "snapshot",
+      "own_domains": ["google.com"],
+      "direct_lines": ["google.com, pub-5882465668842881, DIRECT, f08c47fec0942fa0"],
+      "dashboard_path": "Apps > app-ads.txt tab (no reseller list; only the DIRECT line)",
+      "dashboard_url": "https://admob.google.com/v2/apps/app-ads-txt",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 120,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "meta",
+      "name": "Meta Audience Network",
+      "required": true,
+      "type": "snapshot",
+      "own_domains": ["facebook.com"],
+      "direct_lines": ["facebook.com, 1379592987076187, DIRECT, c3e20eee3f780d68"],
+      "dashboard_path": "Monetization Manager (no public list; only the DIRECT line is documented)",
+      "dashboard_url": "https://business.facebook.com/pub/",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 120,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "unity",
+      "name": "Unity Ads",
+      "required": true,
+      "type": "snapshot",
+      "own_domains": ["unity.com"],
+      "direct_lines": ["unity.com, 146058120, DIRECT, 96cabb5fbdde37a7"],
+      "dashboard_path": "Monetization > Settings > Organization > App-ads.txt > Show full list (Unity recommends a monthly check)",
+      "dashboard_url": "https://cloud.unity.com/",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 60,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "dtexchange",
+      "name": "DT Exchange",
+      "required": true,
+      "type": "snapshot",
+      "own_domains": ["fyber.com"],
+      "direct_lines": ["fyber.com, 240574, DIRECT, 1ad675c9de6b5176"],
+      "dashboard_path": "DT Console (fyber.com/app-ads.txt is DT's own company file, not a publisher list)",
+      "dashboard_url": "https://console.fyber.com/",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 60,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "inmobi",
+      "name": "InMobi",
+      "required": true,
+      "type": "snapshot",
+      "own_domains": ["inmobi.com"],
+      "direct_lines": ["inmobi.com, b780b083f26c4268a9d840994d8b2238, DIRECT, 83e75a7ae333ca9d"],
+      "dashboard_path": "Inventory > App-ads.txt (download the file at the bottom of the page)",
+      "dashboard_url": "https://publisher.inmobi.com/",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 60,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "pangle",
+      "name": "Pangle",
+      "required": true,
+      "type": "snapshot",
+      "own_domains": ["pangleglobal.com"],
+      "direct_lines": ["pangleglobal.com, 5044458, DIRECT"],
+      "dashboard_path": "Pangle dashboard (pangleglobal.com/integration/app-ads-txt is only a template)",
+      "dashboard_url": "https://www.pangleglobal.com/",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 60,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "liftoff",
+      "name": "Liftoff Monetize",
+      "required": true,
+      "type": "snapshot",
+      "own_domains": ["vungle.com"],
+      "direct_lines": ["vungle.com, 6ac55841fb6acbb421dc9ed3, DIRECT, c107d686becd2d77"],
+      "dashboard_path": "publisher.vungle.com/vungleAdsTxt (loads after login)",
+      "dashboard_url": "https://publisher.vungle.com/vungleAdsTxt",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 60,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "mintegral",
+      "name": "Mintegral",
+      "required": true,
+      "type": "public",
+      "own_domains": ["mintegral.com"],
+      "direct_lines": ["mintegral.com, 76973, DIRECT, 0aeed750c80d6423"],
+      "public_sources": [
+        {
+          "url": "https://mintegral-1.gitbook.io/mintegral/v1.0.0-english/best-practices/app-ads.txt.md",
+          "parser": "markdown_code_blocks"
+        }
+      ],
+      "dashboard_path": "Mintegral dashboard > APP-ads.txt tab (crawl status)",
+      "dashboard_url": "https://dev.mintegral.com/",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 60,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "moloco",
+      "name": "Moloco",
+      "required": false,
+      "type": "none",
+      "own_domains": [],
+      "direct_lines": [],
+      "notes": "Moloco FAQ: direct demand only, no app-ads.txt line needed (help.publisher.moloco.com, 2026-10-22)."
+    }
+  ]
+}

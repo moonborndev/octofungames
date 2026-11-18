@@ -1,0 +1,453 @@
+{
+  "date": "2026-11-18",
+  "file_lines": 1749,
+  "file_records": 1747,
+  "to_add_total": 1,
+  "mismatch_total": 0,
+  "networks": {
+    "applovin": {
+      "name": "AppLovin (MAX)",
+      "type": "snapshot",
+      "required": true,
+      "status": "fresh",
+      "snapshot_date": "2026-11-18",
+      "required_count": 38,
+      "to_add_count": 1,
+      "to_add": [
+        "themediagrid.com, HW1PGR, RESELLER, 9fac4a4a87c2a44f"
+      ],
+      "mismatch_count": 0,
+      "mismatches": [],
+      "parse_errors": []
+    },
+    "admob": {
+      "name": "Google AdMob",
+      "type": "snapshot",
+      "required": true,
+      "status": "missing",
+      "snapshot_date": null,
+      "required_count": 1,
+      "to_add_count": 0,
+      "to_add": [],
+      "mismatch_count": 0,
+      "mismatches": [],
+      "parse_errors": []
+    },
+    "meta": {
+      "name": "Meta Audience Network",
+      "type": "snapshot",
+      "required": true,
+      "status": "missing",
+      "snapshot_date": null,
+      "required_count": 1,
+      "to_add_count": 0,
+      "to_add": [],
+      "mismatch_count": 0,
+      "mismatches": [],
+      "parse_errors": []
+    },
+    "unity": {
+      "name": "Unity Ads",
+      "type": "snapshot",
+      "required": true,
+      "status": "missing",
+      "snapshot_date": null,
+      "required_count": 1,
+      "to_add_count": 0,
+      "to_add": [],
+      "mismatch_count": 0,
+      "mismatches": [],
+      "parse_errors": []
+    },
+    "dtexchange": {
+      "name": "DT Exchange",
+      "type": "snapshot",
+      "required": true,
+      "status": "missing",
+      "snapshot_date": null,
+      "required_count": 1,
+      "to_add_count": 0,
+      "to_add": [],
+      "mismatch_count": 0,
+      "mismatches": [],
+      "parse_errors": []
+    },
+    "inmobi": {
+      "name": "InMobi",
+      "type": "snapshot",
+      "required": true,
+      "status": "missing",
+      "snapshot_date": null,
+      "required_count": 1,
+      "to_add_count": 0,
+      "to_add": [],
+      "mismatch_count": 0,
+      "mismatches": [],
+      "parse_errors": []
+    },
+    "pangle": {
+      "name": "Pangle",
+      "type": "snapshot",
+      "required": true,
+      "status": "missing",
+      "snapshot_date": null,
+      "required_count": 1,
+      "to_add_count": 0,
+      "to_add": [],
+      "mismatch_count": 0,
+      "mismatches": [],
+      "parse_errors": []
+    },
+    "liftoff": {
+      "name": "Liftoff Monetize",
+      "type": "snapshot",
+      "required": true,
+      "status": "missing",
+      "snapshot_date": null,
+      "required_count": 1,
+      "to_add_count": 0,
+      "to_add": [],
+      "mismatch_count": 0,
+      "mismatches": [],
+      "parse_errors": []
+    },
+    "mintegral": {
+      "name": "Mintegral",
+      "type": "public",
+      "required": true,
+      "status": "ok",
+      "snapshot_date": null,
+      "required_count": 103,
+      "to_add_count": 0,
+      "to_add": [],
+      "mismatch_count": 0,
+      "mismatches": [],
+      "parse_errors": []
+    },
+    "moloco": {
+      "name": "Moloco",
+      "type": "none",
+      "required": false,
+      "status": "n/a",
+      "snapshot_date": null,
+      "required_count": 0,
+      "to_add_count": 0,
+      "to_add": [],
+      "mismatch_count": 0,
+      "mismatches": [],
+      "parse_errors": []
+    }
+  },
+  "login_needed": [
+    {
+      "key": "admob",
+      "name": "Google AdMob",
+      "reason": "snapshot missing",
+      "dashboard_url": "https://admob.google.com/v2/apps/app-ads-txt",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 120,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "meta",
+      "name": "Meta Audience Network",
+      "reason": "snapshot missing",
+      "dashboard_url": "https://business.facebook.com/pub/",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 120,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "unity",
+      "name": "Unity Ads",
+      "reason": "snapshot missing",
+      "dashboard_url": "https://cloud.unity.com/",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 60,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "dtexchange",
+      "name": "DT Exchange",
+      "reason": "snapshot missing",
+      "dashboard_url": "https://console.fyber.com/",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 60,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "inmobi",
+      "name": "InMobi",
+      "reason": "snapshot missing",
+      "dashboard_url": "https://publisher.inmobi.com/",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 60,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "pangle",
+      "name": "Pangle",
+      "reason": "snapshot missing",
+      "dashboard_url": "https://www.pangleglobal.com/",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 60,
+      "error_wait_seconds": 10
+    },
+    {
+      "key": "liftoff",
+      "name": "Liftoff Monetize",
+      "reason": "snapshot missing",
+      "dashboard_url": "https://publisher.vungle.com/vungleAdsTxt",
+      "dashboard_url_verified": false,
+      "page_wait_seconds": 60,
+      "error_wait_seconds": 10
+    }
+  ],
+  "duplicates": {
+    "groups": 30,
+    "case_only": 8,
+    "cert_variant": 22,
+    "items": [
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "adyoulike.com, 76375ac0f5abb5a550c87326b9063b59, RESELLER",
+          "adyoulike.com, 76375ac0f5abb5a550c87326b9063b59, RESELLER, 4ad745ead2958bf7"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "adyoulike.com, a2226c27fc2a6773f6a2b365e013513a, RESELLER",
+          "adyoulike.com, a2226c27fc2a6773f6a2b365e013513a, RESELLER, 4ad745ead2958bf7"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "adyoulike.com, f78b24039641337f06634ab9a3da4b48, RESELLER",
+          "adyoulike.com, f78b24039641337f06634ab9a3da4b48, RESELLER, 4ad745ead2958bf7"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "appnexus.com, 13293, RESELLER",
+          "appnexus.com, 13293, RESELLER, f5ab79cb980f11d1"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "conversantmedia.com, 100358, RESELLER",
+          "conversantmedia.com, 100358, RESELLER, 03113cd04947736d"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "lijit.com, 530498, RESELLER",
+          "lijit.com, 530498, RESELLER, fafdf38b16bf6b2b"
+        ]
+      },
+      {
+        "kind": "case-only",
+        "lines": [
+          "media.net, 8CU675N41, RESELLER",
+          "media.net, 8cu675n41, RESELLER"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "media.net, 8CU76268D, RESELLER",
+          "media.net, 8CU76268D, RESELLER, 818f58666cabc936"
+        ]
+      },
+      {
+        "kind": "case-only",
+        "lines": [
+          "media.net, 8CUH46N56, RESELLER",
+          "media.net, 8cuh46n56, RESELLER"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "media.net, 8CUI89K0D, RESELLER",
+          "media.net, 8CUI89K0D, RESELLER, 818f58666cabc936"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "media.net, 8CUN37DCC, RESELLER",
+          "media.net, 8CUN37DCC, RESELLER, 818f58666cabc936"
+        ]
+      },
+      {
+        "kind": "case-only",
+        "lines": [
+          "media.net, 8CUSC3UJ7, RESELLER",
+          "media.net, 8cusc3uj7, RESELLER"
+        ]
+      },
+      {
+        "kind": "case-only",
+        "lines": [
+          "media.net, 8CUUQ286L, RESELLER",
+          "media.net, 8cuuq286l, RESELLER"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "onetag.com, 8668c16092f01e8, RESELLER",
+          "onetag.com, 8668c16092f01e8, RESELLER, 0bfd66d529a55807"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "openx.com, 540679900, RESELLER",
+          "openx.com, 540679900, RESELLER, 6a698e2ec38604c6"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "pubmatic.com, 159277, RESELLER",
+          "pubmatic.com, 159277, RESELLER, 5d62403b186f2ace"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "rubiconproject.com, 15268, RESELLER",
+          "rubiconproject.com, 15268, RESELLER, 0bfd66d529a55807"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "smartadserver.com, 3232, RESELLER",
+          "smartadserver.com, 3232, RESELLER, 060d053dcf45cbf3"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "smartadserver.com, 4343, RESELLER",
+          "smartadserver.com, 4343, RESELLER, 060d053dcf45cbf3"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "smartadserver.com, 4456, RESELLER",
+          "smartadserver.com, 4456, RESELLER, 060d053dcf45cbf3"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "themediagrid.com, A8X5S7, RESELLER, 35d5010d7789b49d",
+          "themediagrid.com, A8X5S7, RESELLER, 9fac4a4a87c2a44f"
+        ]
+      },
+      {
+        "kind": "case-only",
+        "lines": [
+          "themediagrid.com, B8N9YH, RESELLER, 35d5010d7789b49d",
+          "themediagrid.com, b8n9yh, RESELLER, 35d5010d7789b49d"
+        ]
+      },
+      {
+        "kind": "case-only",
+        "lines": [
+          "themediagrid.com, FALINO, RESELLER, 9fac4a4a87c2a44f",
+          "themediagrid.com, falino, RESELLER, 9fac4a4a87c2a44f"
+        ]
+      },
+      {
+        "kind": "case-only",
+        "lines": [
+          "themediagrid.com, JVHG38, RESELLER, 9fac4a4a87c2a44f",
+          "themediagrid.com, jvhg38, RESELLER, 9fac4a4a87c2a44f"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "themediagrid.com, NC7LXT, RESELLER, 35d5010d7789b49d",
+          "themediagrid.com, NC7LXT, RESELLER, 9fac4a4a87c2a44f"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "themediagrid.com, SWH94X, RESELLER, 35d5010d7789b49d",
+          "themediagrid.com, SWH94X, RESELLER, 9fac4a4a87c2a44f"
+        ]
+      },
+      {
+        "kind": "case-only",
+        "lines": [
+          "triplelift.com, 14705-EB, RESELLER",
+          "triplelift.com, 14705-eb, RESELLER"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "video.unrulymedia.com, 2099898025, RESELLER",
+          "video.unrulymedia.com, 2099898025, RESELLER, 98c21ef9a666c68b"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "video.unrulymedia.com, 586616193, RESELLER",
+          "video.unrulymedia.com, 586616193, RESELLER, 98c21ef9a666c68b"
+        ]
+      },
+      {
+        "kind": "cert-variant",
+        "lines": [
+          "video.unrulymedia.com, 906352066, RESELLER",
+          "video.unrulymedia.com, 906352066, RESELLER, 98c21ef9a666c68b"
+        ]
+      }
+    ]
+  },
+  "format_errors": [],
+  "order_errors": [],
+  "live": {
+    "checked": true,
+    "url": "https://octofungames.com/app-ads.txt",
+    "identical": true,
+    "only_in_repo": [],
+    "only_in_live": [],
+    "error": null
+  },
+  "registry": {
+    "checked": true,
+    "path": "/Users/kursatacikgoz/Development/Chessdoku/SDK/packages/com.octofun.sdk.core/Editor/SDKProviderRegistry.cs",
+    "registry_ids": [
+      "admob-mediation",
+      "dtexchange-mediation",
+      "inmobi-mediation",
+      "liftoff-mediation",
+      "meta-mediation",
+      "mintegral-mediation",
+      "moloco-mediation",
+      "pangle-mediation",
+      "unityads-mediation"
+    ],
+    "unmapped_ids": [],
+    "missing_networks": [],
+    "not_in_registry": [],
+    "error": null
+  },
+  "errors": []
+}
