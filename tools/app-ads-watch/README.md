@@ -97,8 +97,8 @@ the whole list each time; do not append.
 
 ## Adding a network
 
-1. Add an entry to `networks` in `sources.json`: `key`, `name`, `required`, `type` (`public`, `snapshot` or
-   `none`), `own_domains`, `direct_lines` (our DIRECT line from app-ads.txt), and for `public` a
+1. Add an entry to `networks` in `sources.json`: `key`, `name`, `required`, `type` (`public`, `snapshot`, `direct_only` or
+   `none`; `direct_only` = the dashboard has no list, only our DIRECT line is checked), `own_domains`, `direct_lines` (our DIRECT line from app-ads.txt), and for `public` a
    `public_sources` list of `{url, parser}` (parsers: `markdown_code_blocks`, `plain`; add a new one to
    `PARSERS` in `watch.py` if needed). For `snapshot`, add `dashboard_path`, `dashboard_url`,
    `dashboard_url_verified`, `page_wait_seconds` (60, or 120 for slow dashboards) and `error_wait_seconds` (10).
