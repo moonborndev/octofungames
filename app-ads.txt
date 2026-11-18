@@ -582,6 +582,7 @@ indexexchange.com, 215209, RESELLER, 50b1c356f2c5c8fc
 indexexchange.com, 216408, RESELLER, 50b1c356f2c5c8fc
 indexexchange.com, 216513, RESELLER, 50b1c356f2c5c8fc
 indexexchange.com, 219174, RESELLER, 50b1c356f2c5c8fc
+indexexchange.com, 220189, RESELLER, 50b1c356f2c5c8fc
 inmobi.com, 062029933580429f9920bad476d8d70a, RESELLER, 83e75a7ae333ca9d
 inmobi.com, 0c2fa8130b884712913cc0bfc84e1c31, RESELLER, 83e75a7ae333ca9d
 inmobi.com, 22e5354e453f49348325184e25464adb, RESELLER, 83e75a7ae333ca9d
@@ -618,6 +619,7 @@ insticator.com, cadff748-965f-4393-a76e-a8f902512bad, RESELLER, b3511ffcafb23a32
 insticator.com, e2d3e33c-9911-477a-8ae2-f059870c67c0, RESELLER, b3511ffcafb23a32
 instreamatic.com, 78, RESELLER
 intenze.co, 200066, RESELLER
+iqzone.com, IQ341, RESELLER
 ivs.tv, 745639, RESELLER
 jambojar.com, 2026J77, RESELLER
 kargo.com, 9101, RESELLER, 98ccdd9948ed08da
@@ -659,6 +661,7 @@ lijit.com, 543478, RESELLER, fafdf38b16bf6b2b
 lijit.com, 545922, RESELLER, fafdf38b16bf6b2b
 lijit.com, 545924, RESELLER, fafdf38b16bf6b2b
 lijit.com, 550620, RESELLER, fafdf38b16bf6b2b
+lijit.com, 554504, RESELLER, fafdf38b16bf6b2b
 lijit.com, 558045, RESELLER, fafdf38b16bf6b2b
 lijit.com, 567230, RESELLER, fafdf38b16bf6b2b
 lijit.com, 569924, RESELLER, fafdf38b16bf6b2b
@@ -778,6 +781,7 @@ nativo.com, 6167, RESELLER, 59521ca7cc5e9fee
 nativo.com, 6178, RESELLER, 59521ca7cc5e9fee
 netmarvel.com, 1011828, RESELLER, ca3509163a633862
 newtonsmobi.com, 1c72568c304bd290, RESELLER
+nexverse.ai, 24177, RESELLER
 nobid.io, 22388449880, RESELLER
 nobid.io, 22501800598, RESELLER
 nobid.io, 22575233870, RESELLER
@@ -842,6 +846,7 @@ openx.com, 540785403, RESELLER, 6a698e2ec38604c6
 openx.com, 540838151, RESELLER, 6a698e2ec38604c6
 openx.com, 540844550, RESELLER, 6a698e2ec38604c6
 openx.com, 540866936, RESELLER, 6a698e2ec38604c6
+openx.com, 541017750, RESELLER, 6a698e2ec38604c6
 openx.com, 541177349, RESELLER, 6a698e2ec38604c6
 openx.com, 542281387, RESELLER, 6a698e2ec38604c6
 openx.com, 543878511, RESELLER, 6a698e2ec38604c6
@@ -1444,6 +1449,7 @@ thebrave.io, 9840732, RESELLER, c25b2154543746ac
 themediagrid.com, 1283WV, RESELLER, 35d5010d7789b49d
 themediagrid.com, 1S5LGU, RESELLER, 9fac4a4a87c2a44f
 themediagrid.com, 29IN8P, RESELLER, 9fac4a4a87c2a44f
+themediagrid.com, 64NHQ1, RESELLER, 35d5010d7789b49d
 themediagrid.com, 6RYAUJ, RESELLER, 9fac4a4a87c2a44f
 themediagrid.com, 8ZRKBE, RESELLER, 9fac4a4a87c2a44f
 themediagrid.com, A6CWLO, RESELLER, 35d5010d7789b49d
@@ -1537,6 +1543,7 @@ triplelift.com, 11000, RESELLER, 6c33edb13117fd86
 triplelift.com, 11457, RESELLER, 6c33edb13117fd86
 triplelift.com, 11474, RESELLER, 6c33edb13117fd86
 triplelift.com, 11656, RESELLER, 6c33edb13117fd86
+triplelift.com, 11883, RESELLER, 6c33edb13117fd86
 triplelift.com, 11929, RESELLER, 6c33edb13117fd86
 triplelift.com, 12158, RESELLER, 6c33edb13117fd86
 triplelift.com, 12240, RESELLER, 6c33edb13117fd86
@@ -1607,6 +1614,7 @@ verve.com, 5897, RESELLER, 0c8f5958fc2d6270
 vidazoo.com, 1773068026, RESELLER, b6ada874b4d7d0b2
 vidazoo.com, 6a04bf983b6b70e1f48a52c2, RESELLER, b6ada874b4d7d0b2
 vidazoo.com, 6a3384a48eca8f6ddad62520, RESELLER, b6ada874b4d7d0b2
+vidazoo.com, 6ab4e4454da99de3c4d515c9, RESELLER, b6ada874b4d7d0b2
 video.unrulymedia.com, 123476257, RESELLER
 video.unrulymedia.com, 144138083, RESELLER
 video.unrulymedia.com, 146647607, RESELLER
