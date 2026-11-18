@@ -96,6 +96,23 @@ class Run:
 
 # ---------- helpers ----------
 
+LOCAL_URLS_PATH = os.path.join(STATE_DIR, "dashboard_urls.json")
+
+
+def apply_local_dashboard_urls(config):
+    """Account-specific dashboard links (e.g. Unity's organization URL) live in ~/.config, not in this public repo."""
+    try:
+        with open(LOCAL_URLS_PATH, encoding="utf-8") as f:
+            local = json.load(f)
+    except FileNotFoundError:
+        return config
+    for net in config.get("networks", []):
+        url = local.get(net.get("key"))
+        if url:
+            net["dashboard_url"] = url
+    return config
+
+
 def load_sources():
     with open(SOURCES_PATH, encoding="utf-8") as f:
         return json.load(f)
@@ -444,7 +461,7 @@ def main(argv=None):
         print("app-ads-watch: another run is already in progress (lock {}).".format(LOCK_PATH), file=sys.stderr)
         return EXIT_LOCKED
 
-    config = load_sources()
+    config = apply_local_dashboard_urls(load_sources())
     all_snapshot = snapshot_networks(config)
     if args.networks:
         wanted = [k.strip() for k in args.networks.split(",") if k.strip()]
@@ -508,6 +525,10 @@ def main(argv=None):
     report = run_report(run, env)
     if report is not None:
         add_this_run_login_needed(report, run, {n["key"]: n for n in networks})
+        local_urls = {n["key"]: n.get("dashboard_url") for n in config.get("networks", [])}
+        for item in report.get("login_needed", []):
+            if local_urls.get(item.get("key")):
+                item["dashboard_url"] = local_urls[item["key"]]
     text = build_message(report, run, today, is_retry=bool(args.thread_ts))
     ts = post_slack(run, text, args.thread_ts)
     if not args.no_slack:
