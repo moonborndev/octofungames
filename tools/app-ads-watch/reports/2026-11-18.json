@@ -432,7 +432,7 @@
   },
   "registry": {
     "checked": true,
-    "path": "/Users/kursatacikgoz/Development/Chessdoku/SDK/packages/com.octofun.sdk.core/Editor/SDKProviderRegistry.cs",
+    "path": "SDKProviderRegistry.cs",
     "registry_ids": [
       "admob-mediation",
       "dtexchange-mediation",

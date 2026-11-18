@@ -287,14 +287,14 @@ def live_check(ours, url, errors):
 
 
 def registry_check(path, config, errors):
-    result = {"checked": True, "path": path, "registry_ids": [], "unmapped_ids": [],
+    result = {"checked": True, "path": os.path.basename(path), "registry_ids": [], "unmapped_ids": [],
               "missing_networks": [], "not_in_registry": [], "error": None}
     try:
         with open(path, encoding="utf-8") as f:
             text = f.read()
     except Exception as exc:
         result["error"] = str(exc)
-        errors.append("registry: cannot read {}: {}".format(path, exc))
+        errors.append("registry: cannot read {}: {}".format(os.path.basename(path), type(exc).__name__))
         return result
     ids = sorted(set(re.findall(r'"([A-Za-z0-9_.-]+-mediation)"', text)))
     result["registry_ids"] = ids
