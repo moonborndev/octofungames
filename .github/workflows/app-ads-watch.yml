@@ -1,0 +1,33 @@
+name: app-ads.txt watch
+
+# Weekly check of the lines our ad networks require in app-ads.txt.
+# Phase 1: report only. Nothing is committed or pushed by this workflow.
+# To change the frequency, edit the cron line below (UTC).
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run report
+        run: |
+          DAY=$(date -u +%Y-%m-%d)
+          mkdir -p out
+          python3 tools/app-ads-watch/watch.py report --out "out/$DAY.md" --json "out/$DAY.json"
+          cat "out/$DAY.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep report
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-ads-report
+          path: out/
+          retention-days: 90
