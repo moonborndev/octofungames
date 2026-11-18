@@ -38,7 +38,20 @@ DOWNLOADS_DIR = os.path.expanduser("~/Downloads")
 
 SDK_REGISTRY = os.environ.get("APP_ADS_SDK_REGISTRY", os.path.expanduser(
     "~/Development/Chessdoku/SDK/packages/com.octofun.sdk.core/Editor/SDKProviderRegistry.cs"))
-CHANNEL_ID = "C0BTXT7BDKQ"
+def _channel_id_from_env(path):
+    """The Slack channel id lives in slack.env (SLACK_CHANNEL_ID), not in this public repo."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                key, _, value = line.strip().partition("=")
+                if key == "SLACK_CHANNEL_ID":
+                    return value.strip()
+    except OSError:
+        pass
+    return ""
+
+
+CHANNEL_ID = _channel_id_from_env(SLACK_ENV_PATH)
 CLAUDE_BIN = "claude"
 CLAUDE_TIMEOUT_SECONDS = 25 * 60
 MAX_LINES_PER_NETWORK = 20

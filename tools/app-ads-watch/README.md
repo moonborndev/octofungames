@@ -126,8 +126,9 @@ Files in `mac/`:
 Install: `mac/setup.sh`, then `mac/install.sh`. Remove: `mac/uninstall.sh`.
 
 Secrets live only in `~/.config/app-ads-watch/slack.env` (chmod 600: `SLACK_BOT_TOKEN`, `SLACK_APP_TOKEN`,
-`SLACK_CHANNEL`). The GitHub Actions workflow posts its own short summary with the same bot token, stored
-as the repository secret `SLACK_BOT_TOKEN` (added 2026-11-18). Logs: `~/.config/app-ads-watch/logs/` (`<date>-<time>.log` per run, `listener.log`,
+`SLACK_CHANNEL`, `SLACK_CHANNEL_ID`). The GitHub Actions workflow posts its own short summary with the same bot
+token and channel id, stored as the repository secrets `SLACK_BOT_TOKEN` and `SLACK_CHANNEL_ID` (added
+2026-11-18). The channel id is kept out of this public repo on purpose. Logs: `~/.config/app-ads-watch/logs/` (`<date>-<time>.log` per run, `listener.log`,
 launchd stdout/stderr). State: `~/.config/app-ads-watch/state.json` (last post ts, lines to add,
 login-needed networks) and `last-report.md` / `last-report.json`. No token is ever logged. Claude runs on
 the Max subscription login; the jobs never set `ANTHROPIC_API_KEY` and the scripts remove it.

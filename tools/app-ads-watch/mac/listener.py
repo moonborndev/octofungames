@@ -34,7 +34,20 @@ LOCK_PATH = os.path.join(STATE_DIR, "run.lock")
 STATE_PATH = os.path.join(STATE_DIR, "state.json")
 SLACK_ENV_PATH = os.path.join(STATE_DIR, "slack.env")
 
-CHANNEL_ID = "C0BTXT7BDKQ"
+def _channel_id_from_env(path):
+    """The Slack channel id lives in slack.env (SLACK_CHANNEL_ID), not in this public repo."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                key, _, value = line.strip().partition("=")
+                if key == "SLACK_CHANNEL_ID":
+                    return value.strip()
+    except OSError:
+        pass
+    return ""
+
+
+CHANNEL_ID = _channel_id_from_env(SLACK_ENV_PATH)
 LIVE_URL = "https://octofungames.com/app-ads.txt"
 LIVE_POLL_SECONDS = 10 * 60
 LIVE_POLL_INTERVAL_SECONDS = 30
@@ -236,8 +249,8 @@ def handle_approve(event, names, reply, repo=REPO_DIR, push=True, poll=True):
             if not lines:
                 log.info("approve: %s had nothing new after earlier commits", key)
                 continue
-            message = "Add {} lines to app-ads.txt\n\nApproved in Slack by {} (channel {}, ts {}).\n\n{}\n".format(
-                net_names.get(key, key), user, CHANNEL_ID, event.get("ts"), CO_AUTHOR)
+            message = "Add {} lines to app-ads.txt\n\nApproved in Slack by {} (ts {}).\n\n{}\n".format(
+                net_names.get(key, key), user, event.get("ts"), CO_AUTHOR)
             commit = git(repo, "commit", "-q", "-F", "-", "--", "app-ads.txt", input_text=message)
             if commit.returncode != 0:
                 git(repo, "checkout", "--", "app-ads.txt")
@@ -336,6 +349,9 @@ def main():
                         format="%(asctime)s %(levelname)s %(name)s %(message)s")
     logging.getLogger("slack_sdk").setLevel(logging.WARNING)
     secrets = read_slack_env()
+    if not CHANNEL_ID:
+        log.error("SLACK_CHANNEL_ID missing in %s; listener stops", SLACK_ENV_PATH)
+        return 1
     web = WebClient(token=secrets["SLACK_BOT_TOKEN"])
     client = SocketModeClient(app_token=secrets["SLACK_APP_TOKEN"], web_client=web)
     seen = set()
