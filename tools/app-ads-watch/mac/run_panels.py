@@ -279,6 +279,18 @@ def run_report(run, env):
         return json.load(f)
 
 
+def add_this_run_login_needed(report, run, by_key):
+    """A network Claude could not read in this run is login needed even if an older snapshot is still fresh."""
+    listed = set(item["key"] for item in report["login_needed"])
+    for key, (status, note) in sorted(run.claude_status.items()):
+        if status != "login_needed" or key in listed or key not in by_key:
+            continue
+        net = by_key[key]
+        report["login_needed"].append({"key": key, "name": net["name"], "dashboard_url": net.get("dashboard_url"),
+                                       "reason": "bu turda giriş sayfası çıktı (eski snapshot kullanıldı)"})
+        run.log("{}: login needed this run; older snapshot used for the report".format(key))
+
+
 # ---------- Slack ----------
 
 def build_message(report, run, today, is_retry):
@@ -459,6 +471,7 @@ def main(argv=None):
                     continue
                 path = write_snapshot(by_key[key], snap["lines"], snap["source"], today)
                 run.log("{}: wrote {} lines to {}".format(key, len(snap["lines"]), path))
+            run.claude_status = dict(statuses)
             for key, (status, note) in sorted(statuses.items()):
                 run.log("{}: claude status {} {}".format(key, status, note))
                 if status == "error":
@@ -480,6 +493,8 @@ def main(argv=None):
                         run.errors.append("liftoff: indirilen dosyada vungle.com satırı yok")
 
     report = run_report(run, env)
+    if report is not None:
+        add_this_run_login_needed(report, run, {n["key"]: n for n in networks})
     text = build_message(report, run, today, is_retry=bool(args.thread_ts))
     ts = post_slack(run, text, args.thread_ts)
     if not args.no_slack:
