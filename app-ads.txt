@@ -761,6 +761,7 @@ mobismarter.com, 3294, RESELLER
 mobupps.com, c74d97b01eae257e44aa9d5bade97baf33149, RESELLER
 mobupps.com, c74d97b01eae257e44aa9d5bade97baf5001, RESELLER
 mobupps.com, c74d97b01eae257e44aa9d5bade97baf7726, RESELLER
+monetrix.ai, 10761, RESELLER
 motorik.io, 100463, RESELLER
 my-cast.tv, 986797, RESELLER, 8c33fe1bd714ffd7
 my-cast.tv, 987033, RESELLER, 8c33fe1bd714ffd7
@@ -890,6 +891,7 @@ peak226.com, 12400, RESELLER
 peak226.com, 12900, RESELLER
 peak226.com, 12901, RESELLER
 peak226.com, 12904, RESELLER
+playdigo.com, 1965, RESELLER
 playdigo.com, 1986, RESELLER, 92011346d63d3c30
 playdigo.com, 2010, RESELLER
 playdigo.com, 2036, RESELLER, 92011346d63d3c30
@@ -1310,6 +1312,7 @@ smaato.com, 1100058938, RESELLER, 07bcf65f187117b4
 smaato.com, 1100058954, RESELLER, 07bcf65f187117b4
 smaato.com, 1100059052, RESELLER, 07bcf65f187117b4
 smaato.com, 1100059282, RESELLER, 07bcf65f187117b4
+smaato.com, 1100059345, RESELLER, 07bcf65f187117b4
 smaato.com, 1100059375, RESELLER, 07bcf65f187117b4
 smaato.com, 1100059476, RESELLER, 07bcf65f187117b4
 smaato.com, 1100059563, RESELLER, 07bcf65f187117b4
@@ -1405,6 +1408,7 @@ ssp.e-volution.ai, AJxF6R378a9M6CaTvK, RESELLER
 ssp.e-volution.ai, AJxF6R674a9M6CaTvK, RESELLER
 ssp.logan.ai, LG15, RESELLER
 ssp.zetaglobal.net, 815, RESELLER
+start.io, 131192070, RESELLER
 start.io, 150505487, RESELLER
 start.io, 158727715, RESELLER
 start.io, 162328800, RESELLER
