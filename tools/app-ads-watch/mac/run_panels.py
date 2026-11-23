@@ -71,6 +71,9 @@ SNAPSHOT_BEGIN_RE = re.compile(r"^=== SNAPSHOT ([a-z0-9_-]+) BEGIN ===\s*$")
 SNAPSHOT_END_RE = re.compile(r"^=== SNAPSHOT ([a-z0-9_-]+) END ===\s*$")
 STATUS_RE = re.compile(r"^=== STATUS ([a-z0-9_-]+) (ok|login_needed|error|download_clicked)(?: (.*))? ===\s*$")
 CRAWL_RE = re.compile(r"^=== CRAWL ([a-z0-9_-]+) (.+) ===\s*$")
+# Crawl notes that are expected and not actionable; they are logged but not posted to Slack.
+# Box Cat has too little traffic for InMobi to crawl it (user asked to hide this, 2026-11-23).
+QUIET_CRAWL_NOTES = [("box cat", "low ad traffic")]
 SOURCE_RE = re.compile(r"^=== SOURCE ([a-z0-9_-]+) (.+) ===\s*$")
 # One app-ads record line: domain, id, TYPE[, certId]. Anything else is dropped.
 RECORD_RE = re.compile(r"^\s*[A-Za-z0-9.-]+\s*,\s*[^,\s]+\s*,\s*(DIRECT|RESELLER)\s*(,\s*[^,\s]+\s*)?$",
@@ -497,7 +500,13 @@ def main(argv=None):
             output = run_claude(run, networks, today, env)
             keys = {n["key"] for n in networks}
             snapshots, statuses, crawl = parse_claude_output(output, keys)
-            run.crawl = crawl
+            run.crawl = []
+            for key, text in crawl:
+                lowered = text.lower()
+                if any(app in lowered and note in lowered for app, note in QUIET_CRAWL_NOTES):
+                    run.log("{}: crawl note not posted (expected): {}".format(key, text))
+                else:
+                    run.crawl.append((key, text))
             by_key = {n["key"]: n for n in networks}
             for key, snap in snapshots.items():
                 if key == "liftoff":
