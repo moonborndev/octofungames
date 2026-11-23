@@ -261,12 +261,19 @@ def write_snapshot(net, lines, source, today):
     return path
 
 
-def find_liftoff_download(started_epoch):
+def find_liftoff_download(started_epoch, run=None):
     """Newest Vungle/Liftoff app-ads.txt file in ~/Downloads modified after the run started."""
     best = None
     try:
         names = os.listdir(DOWNLOADS_DIR)
-    except OSError:
+    except OSError as exc:
+        if run is not None:
+            run.log("liftoff: cannot list {}: {}".format(DOWNLOADS_DIR, exc))
+            if isinstance(exc, PermissionError):
+                run.errors.append("liftoff: İndirilenler klasörüne erişim izni yok (macOS Gizlilik → Dosyalar ve "
+                                  "Klasörler, python3)")
+            else:
+                run.errors.append("liftoff: İndirilenler klasörü okunamadı ({})".format(type(exc).__name__))
         return None
     for name in names:
         if not LIFTOFF_NAME_RE.search(name) or not name.lower().endswith(".txt"):
@@ -507,10 +514,11 @@ def main(argv=None):
                 if status == "error":
                     run.errors.append("{}: {}".format(key, note or "okunamadı"))
             if "liftoff" in keys:
-                download = find_liftoff_download(started_epoch)
+                download = find_liftoff_download(started_epoch, run)
                 if download is None:
                     run.log("liftoff: no new download found in {}".format(DOWNLOADS_DIR))
-                    if statuses.get("liftoff", ("",))[0] == "download_clicked":
+                    if statuses.get("liftoff", ("",))[0] == "download_clicked" and not any(
+                            e.startswith("liftoff: İndirilenler") for e in run.errors):
                         run.errors.append("liftoff: indirilen dosya bulunamadı")
                 else:
                     records = read_liftoff_file(download)
